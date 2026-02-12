@@ -12,24 +12,35 @@ function Home() {
   const projects = [
     {
       id: 1,
-      title: "Projeto Alpha",
-      description: "Um jogo de aventura épico com mecânicas inovadoras e gráficos impressionantes. Explore mundos vastos, enfrente desafios únicos e descubra segredos escondidos.",
-      image: "/assets/project1.gif",
-      itchLink: "https://itch.io/projeto-alpha"
+      title: "BubbleMakers",
+      description: "Jogo de sobrevivência cooperativa com câmera isométrica, desenvolvido para rodar diretamente no navegador. O diferencial é o sistema de local multiplayer inovador, onde dois jogadores dividem o mesmo teclado para controlar robôs com funções complementares (ataque com sabão e suporte com água) contra ondas de inimigos. Desenvolvido em Unity com otimizações WebGL.",
+      image: "/assets/bubblemakers.png",
+      itchLink: "https://lowstaminadev.itch.io/bubblemakers",
+      buttonText: "Jogar no Navegador"
     },
     {
       id: 2,
-      title: "Projeto Beta",
-      description: "Experiência roguelike com combate frenético e progressão permanente. Cada run é única com geração procedural de níveis e inimigos desafiadores.",
-      image: "/assets/project2.gif",
-      itchLink: "https://itch.io/projeto-beta"
+      title: "RetroSwim",
+      description: "Endless runner 3D com estética Vaporwave, focado na fluidez de movimento e pontuação. Controle uma prancha em um oceano infinito, realize manobras e colete itens (DVDs). Desenvolvido em Godot com shaders avançados para criar efeitos de água, distorção de luz e atmosfera sintética.",
+      image: "/assets/retroswim.png",
+      itchLink: "https://lowstaminadev.itch.io/retroswim",
+      buttonText: "Jogar no Navegador"
     },
     {
       id: 3,
-      title: "Projeto Gamma",
-      description: "Puzzle game minimalista que desafia sua lógica e criatividade. Centenas de níveis cuidadosamente criados para proporcionar horas de diversão.",
-      image: "/assets/project3.gif",
-      itchLink: "https://itch.io/projeto-gamma"
+      title: "LaughArena",
+      description: "Jogo de sobrevivência em arena que mescla movimentação 3D com estética 2D (estilo Billboarding), inspirado em animações clássicas. Sobreviva a hordas de ratos utilizando mecânicas de física (chutar, soltar cascas de banana) e gestão de recursos em um espaço confinado. Desenvolvido em Godot com máquina de estados avançada.",
+      image: "/assets/laugharena.png",
+      itchLink: "https://lowstaminadev.itch.io/laugharena",
+      buttonText: "Baixar no itch.io"
+    },
+    {
+      id: 4,
+      title: "ProjectBoost",
+      description: "Jogo de plataforma de precisão baseado em física onde o controle de empuxo (thrust) e rotação é a chave para a navegação. Transporte uma nave frágil através de níveis com obstáculos, exigindo precisão extrema e gerenciamento de inércia. Desenvolvido em Godot com física realista e detecção de colisão precisa.",
+      image: "/assets/projectboost.png",
+      itchLink: "https://lowstaminadev.itch.io/projectboost",
+      buttonText: "Baixar no itch.io"
     }
   ];
 
@@ -75,22 +86,26 @@ function Home() {
                     rel="noopener noreferrer"
                     style={styles.downloadButton}
                   >
-                    Baixar no itch.io
+                    {project.buttonText}
                   </a>
                 </div>
                 <div style={styles.projectImage}>
-                  <div style={styles.imagePlaceholder}>
-                    <span style={styles.placeholderText}>GIF/Imagem do Projeto</span>
-                  </div>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={styles.projectImageImg}
+                  />
                 </div>
               </>
             ) : (
               <>
                 {/* Imagem à esquerda, texto à direita */}
                 <div style={styles.projectImage}>
-                  <div style={styles.imagePlaceholder}>
-                    <span style={styles.placeholderText}>GIF/Imagem do Projeto</span>
-                  </div>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={styles.projectImageImg}
+                  />
                 </div>
                 <div style={styles.projectText}>
                   <h2 style={styles.projectTitle}>{project.title}</h2>
@@ -101,7 +116,7 @@ function Home() {
                     rel="noopener noreferrer"
                     style={styles.downloadButton}
                   >
-                    Baixar no itch.io
+                    {project.buttonText}
                   </a>
                 </div>
               </>
@@ -116,7 +131,7 @@ function Home() {
         <div style={styles.socialLinks}>
           <a href="#" style={styles.socialLink}>Twitter</a>
           <a href="#" style={styles.socialLink}>Discord</a>
-          <a href="#" style={styles.socialLink}>itch.io</a>
+          <a href="https://lowstaminadev.itch.io/" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>itch.io</a>
         </div>
       </footer>
     </div>
@@ -222,6 +237,12 @@ const styles = {
   projectImage: {
     flex: 1,
     minWidth: '300px',
+  },
+  projectImageImg: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '12px',
+    boxShadow: '0 10px 30px rgba(76, 175, 80, 0.2)',
   },
   imagePlaceholder: {
     width: '100%',
