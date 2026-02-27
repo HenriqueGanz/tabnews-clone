@@ -1,8 +1,9 @@
 import database from '../../../../infra/database.js';
 
-function status (req, res) {
-  console.log(database)
-  res.status;
+async function status (req, res) {
+  const result = await database.query('SELECT 1 + 1 as sum;');
+  console.log(result.rows);
+  res.status(200).json({ status: "ok" });
 }
 
 export default status;
